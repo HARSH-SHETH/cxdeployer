@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react';
+
+import ListForm from './ListForm.js';
+import List from './List.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  let [todolists, setTodoLists] = useState([]);
+  let [displayForm, setDisplayForm] = useState(false);
+
+  useEffect(() => {
+    console.log(todolists);
+  }, [todolists]);
+
+  function newTodoList(e){
+    setDisplayForm(true);
+  }
+
+  if(displayForm){
+    return (
+      <ListForm remove={setDisplayForm} />
+    )
+  }else{
+    return (
+      <div className="App">
+      <button onClick={newTodoList}>
+      Create New Todo List
+      </button> 
+      </div>
+    );
+  }
 }
 
 export default App;
