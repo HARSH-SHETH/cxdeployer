@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react';
 
-import ListForm from './ListForm.js';
-import List from './List.js';
+import ListForm from './ListForm';
+import TodoLists from './TodoLists';
+
+import './App.css';
 
 function App() {
   let [todolists, setTodoLists] = useState([]);
@@ -15,19 +17,29 @@ function App() {
     setDisplayForm(true);
   }
 
-  if(displayForm){
-    return (
-      <ListForm remove={setDisplayForm} />
-    )
-  }else{
-    return (
-      <div className="App">
-      <button onClick={newTodoList}>
-      Create New Todo List
-      </button> 
-      </div>
-    );
+  function deleteTodoList(e, key){
+    let newTodoLists = todolists.filter((list, index) => {
+      return index !== key;
+    })
+
+    setTodoLists(newTodoLists);
   }
+
+  return (
+    <div className="App">
+    <button onClick={newTodoList}>
+    Create New Todo List
+    </button> 
+    { displayForm && 
+      <ListForm 
+        display={setDisplayForm} 
+        lists={todolists}
+        setTodoLists={setTodoLists}
+      /> 
+    }
+    <TodoLists deleteList={deleteTodoList} todolists={todolists}/>
+    </div>
+  );
 }
 
 export default App;

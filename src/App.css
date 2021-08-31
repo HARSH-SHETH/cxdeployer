@@ -1,38 +1,124 @@
-.App {
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.App > button{
+  text-align: center;
+  width: 20%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+  font-size: large;
+  padding: 5px;
+  border: none;
+  border-radius: 25px;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+.App > button:hover{
+  font-size: x-large;
+  opacity: 0.8;
+}
+
+.App > form{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > form > input{
+  display: inline;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 25px;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 25px;
+  border: 4px solid #ffc2eb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App > form > button{
+  width: 4%;
+  margin-top: 10px;
+  font-size: medium;
+  margin-left: 10px;
+  position: relative;
+  top: 1px;
+  padding: 4px 0px;
+  border: none;
+  border-radius: 25px;
+  background: #ffc2eb;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.lists{
   display: flex;
-  flex-direction: column;
+  margin: 50px auto;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: flex-start;
+}
+
+.lists > div{
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px;
+}
+
+li{
+  display: flex;
+  list-style: none;
+  margin: 5px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.lists > div > p{
+  display: inline;
+  text-align: center;
+  margin: 2px auto;
+  width: 50%;
+  font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.lists > div > button{
+  border: none;
+  margin-left: 5px;
+  height: 20px;
+  position: relative;
+  bottom: 4px;
+  width: 15%;
+  border-radius: 5px;
+}
+
+.lists > div > form > input{
+  display: inline;
+  width: 90%;
+  height: 20px;
+  border: none;
+  outline: none;
+}
+
+.lists > div > form > button{
+  width: 10%;
+  border: none;
+  border-left: 2px solid black;
+  height: 20px;
+}
+
+li > button{
+  width: 10%;
+  height: 20px;
+  border: none;
+}
+
+ul{
+  margin-top: 15px;
+}
+
+input[type="checkbox"]{
+  margin-right: 5px;
 }
